@@ -40,6 +40,12 @@ class System{
    console.log(`$ node todo.js tag (type spesific task id) (type tags) >>>>>> to add custom tags`);
    console.log(`$ node todo.js filter (type filter) >>>>> to sort task by filter`);
  }
+
+ static clearScreen(){
+   for(var i=0; i<30; i++){
+     console.log(`\n`);
+   }
+ }
 }
 
 export default System
