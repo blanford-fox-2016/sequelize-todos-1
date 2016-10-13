@@ -24,33 +24,30 @@ module.exports = function(sequelize, DataTypes) {
       show_all: function() {
         NewTodo.findAll({
           attributes: ['id','title', 'status']
-        }).then((data, err) => {
-          return err ? console.log(err) : data.dataValues;
-        });
+        }).then((data) => {
+          data.map((value) => {
+            console.log(value.dataValues.id + " "+ NewTodo.status_to_symbol(value.dataValues.status)+ " " + value.dataValues.title)
+          })
+        })
       },
       show_id: function(id_todo) {
         NewTodo.findOne({
           where: {
             id: id_todo
           }
-        }).then((data, err) => {
-          return err ? console.log(err) : data.dataValues;
+        }).then((data) => {
+          console.log(data.dataValues.id + " " + NewTodo.status_to_symbol(data.dataValues.status) + " " + data.dataValues.title);
         });
       },
       show_status: function(input_status) {
-        var cetak_status
-        if(){
-
-        }else{
-
-        }
+        let x = NewTodo.validation(input_status)
         NewTodo.findAll({
           where: {
-            status : input_status
+            status : x[0]
           }
         }).then((data) => {
           data.map((value) => {
-            console.log(value.dataValues.id + " " + value.dataValues.title)
+            console.log(value.dataValues.id + " " +x[1] + " " + value.dataValues.title)
           })
         }).catch((err) => {
           console.log(err)
@@ -73,6 +70,20 @@ module.exports = function(sequelize, DataTypes) {
             id : id_todo
           }
         })
+      },
+      validation: function(status){
+        let result = [];
+        if(status == "true") {
+          result.push(1);
+          result.push("[x]");
+        }else{
+          result.push(0);
+          result.push("[ ]");
+        }
+        return result;
+      },
+      status_to_symbol: function(input) {
+        return input == 1 ? "[x]" : "[ ]";
       }
     }
   });
