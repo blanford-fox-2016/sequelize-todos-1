@@ -11,13 +11,25 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
       },
-      list: function(models) {
-        console.log(models);
-        models.findOne({
-          attributes: ['completed', 'activity', 'createdAt']
-        }).then(data,err) =>{
-          return data
-        }
+      list: function() {
+        Todo.findAll({
+          attributes: ['id','completed', 'activity', 'createdAt']
+        }).then((data) => {
+          console.log("id | status | activity");
+          for (var i = 0; i < data.length; i++) {
+            let status = "";
+            if (data[i].dataValues.completed == 0) {
+              status = "[ ]";
+            } else {
+              status = "[x]";
+            }
+
+            console.log(`${data[i].dataValues.id}. | ${status} |${data[i].dataValues.activity}`);
+
+
+          };
+        })
+
       }
     }
   });
