@@ -9,15 +9,6 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
       },
 
-      printHelp: function() {
-        console.log("============HELP============\n");
-        console.log("node todo.js #will call help");
-        console.log("node todo.js help");
-        console.log("node todo.js add <task_content>");
-        console.log("node todo.js delete <task_id>");
-        console.log("node todo.js completed <task_id>");
-      },
-
       getList: function() {
         Todo.findAll().then(function (todo) {
             for (var i = 0; i < todo.length; i++) {
