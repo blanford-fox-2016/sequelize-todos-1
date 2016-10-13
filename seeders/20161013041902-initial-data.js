@@ -15,28 +15,28 @@ module.exports = {
     return queryInterface.bulkInsert('Tasks', [
       { tugas : 'masak kue keju yang enak',
         done: false,
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       { tugas : 'Coding export import',
         done: false,
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       { tugas : 'Sholat Dzuhur',
         done: false,
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       { tugas : 'Panggil mas hacker 3x',
         done: false,
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       { tugas : 'bobo siang',
         done: false,
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
   ])
   },
