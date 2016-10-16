@@ -73,13 +73,14 @@ argv.forEach((val, index) => {
     }
 
   }
-  //
-  // else if (val == "uncompleted") {
-  //
-  //   // console.log(list[i].id);
-  //   list[index].status = false
-  //   jsonfile.writeFileSync(file, list)
-  //   console.log(`Task "${list[index].task}" to your TODO list belum selesai`);
-  // }
+
+  else if (val == "uncompleted") {
+    if (typeof argv[3] == "undefined") {
+      console.log("Data harus di isi");
+    }else {
+      Todos.uncompleteList(argv[3])
+      // console.log(dataBaru);
+    }
+  }
 
 })

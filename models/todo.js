@@ -38,6 +38,17 @@ module.exports = function(sequelize, DataTypes) {
         })
       },
 
+      uncompleteList: function(idTask) {
+        Todo.update({
+          completed:0
+        },{
+          where: {id:idTask}
+        })
+            .then(function() {
+              console.log(`Task id ${idTask} uncompleted`);
+            })
+      },
+
       deleteList: function(idTask) {
         Todo.destroy({
           where: {id:idTask}
