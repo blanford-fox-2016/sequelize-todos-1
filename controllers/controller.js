@@ -27,7 +27,7 @@ export class Controller {
 
   unComplete(act_id) {
     Todo.update({
-      completed: 1,
+      completed: 0,
     },  {
       where: {
         id: act_id
