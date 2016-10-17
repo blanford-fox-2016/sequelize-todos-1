@@ -1,0 +1,8 @@
+{
+  "development": {
+    "database": "todo_list_cli",
+    "storage": "./db/todo.db",
+    "dialect": "sqlite",
+    "logging": false
+  }
+}
